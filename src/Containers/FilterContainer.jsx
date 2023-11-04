@@ -5,7 +5,6 @@ import ImportHar from "./../Components/Import/ImportHAR";
 import Search from "./../Components/Filters/Search";
 import { useNetwork } from "./../state/network/Context";
 import { FILTERS } from "./../constants";
-import Button from "./../Components/Common/Button";
 import { useTheme } from "../state/theme/Context";
 import ErrorFilter from "../Components/Filters/ErrorFilter";
 import Reset from "../Components/Import/Reset";
@@ -23,20 +22,32 @@ const FilterContainer = () => {
           <Search {...state.get("search")} onChange={actions.updateSearch} />
         </div>
         <div className="sm:col-span-12 md:col-span-8 lg:col-span-7">
-          <div>
-            {FILTERS.map(({ name, filterBy }) => {
-              const selectedFilter = filterBy.value === filter.value;
-              return (
-                <Button
-                  key={name}
-                  category="default"
-                  onClick={() => actions.updateFilter(filterBy)}
-                  size="sm"
-                >
-                  {name}
-                </Button>
-              );
-            })}
+          <div className="flex items-center gap-2">
+            <div class="inline-flex rounded-md shadow-sm" role="group">
+              {FILTERS.map(({ name, filterBy }, index) => {
+                const selectedFilter = filterBy.value === filter.value;
+
+                const startClassName = `px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`;
+                const midClassName = `px-4 py-2 text-sm font-medium text-gray-900 bg-white border-t border-b border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`;
+                const endClassName = `px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white`;
+
+                return (
+                  <button
+                    key={name}
+                    className={
+                      index === 0
+                        ? startClassName
+                        : index === FILTERS.length - 1
+                        ? endClassName
+                        : midClassName
+                    }
+                    onClick={() => actions.updateFilter(filterBy)}
+                  >
+                    {name}
+                  </button>
+                );
+              })}
+            </div>
             <ErrorFilter isError={filterByError} onChange={actions.updateErrorFilter} />
             {showImportHAR && (
               <>

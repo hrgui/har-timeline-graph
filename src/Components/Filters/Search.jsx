@@ -2,9 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Styles = {};
-import Dropdown from "./../Common/Dropdown";
-
-const SEARCH_CATEGORY = ["url", "body"];
 
 const Search = ({ name, value, onChange }) => {
   const handleInputChange = ({ target }) => {
@@ -14,23 +11,10 @@ const Search = ({ name, value, onChange }) => {
     });
   };
 
-  const handleDropdownChange = (selectedKey) => {
-    onChange({
-      name: selectedKey,
-      value,
-    });
-  };
-
   return (
-    <div className={Styles["search-container"]}>
-      <Dropdown
-        className={Styles["prepend-dropdown"]}
-        items={SEARCH_CATEGORY}
-        onChange={handleDropdownChange}
-        selected="url"
-      />
+    <div>
       <input
-        className={Styles.input}
+        className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
         onChange={handleInputChange}
         placeholder="Filter"
         type="text"

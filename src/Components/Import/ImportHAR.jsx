@@ -4,7 +4,6 @@ import { useDropzone } from "react-dropzone";
 
 import { useNetwork } from "./../../state/network/Context";
 const Styles = {};
-import Button from "./../Common/Button";
 
 const DROP_FILE_CONFIG = {
   accept: ".har",
@@ -45,9 +44,13 @@ const ImportHar = ({ showButton, className }) => {
     <div {...getRootProps()}>
       <input {...getInputProps()} />
       {showButton ? (
-        <Button category="default" className={className} material raised size="sm">
+        <button
+          className={
+            "text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          }
+        >
           Import HAR
-        </Button>
+        </button>
       ) : (
         <p className={Styles["drag-drop"]}>Drag and drop HAR file here, or click to select file</p>
       )}

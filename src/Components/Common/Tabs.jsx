@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames/bind";
-
-const Styles = {};
-
-const context = classNames.bind(Styles);
+import context from "classnames";
 
 const Tabs = ({
   onUpdate,
@@ -50,13 +46,22 @@ const Tabs = ({
 
   return (
     <>
-      <nav className={context("nav-tabs", navTabsClassName)}>
+      <nav
+        className={context(
+          "flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400",
+          navTabsClassName
+        )}
+      >
         {items.map(({ key: item, name }, index) => (
           <a
             key={item}
-            className={context("tab-item", navLinkClassName, {
-              [activeClassName || Styles.active]: activeTab === item,
-            })}
+            className={context(
+              "inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-50",
+              navLinkClassName,
+              {
+                [activeClassName || Styles.active]: activeTab === item,
+              }
+            )}
             onClick={() => handleUpdate(item)}
             role="tab"
             tabIndex={index}
