@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames/bind";
 
-import NetworkProvider from './state/network/NetworkProvider';
-import MainContainer from './Containers/MainContainer';
-import Styles from './NetworkViewer.styles.scss';
-import ThemeProvider from './state/theme/Context';
+import NetworkProvider from "./state/network/NetworkProvider";
+import MainContainer from "./Containers/MainContainer";
+import ThemeProvider from "./state/theme/Context";
+const Styles = {};
 
 const contextClassNames = classNames.bind(Styles);
 
@@ -22,7 +22,7 @@ const NetworkViewer = ({
   onDataError,
   containerClassName,
 }) => (
-  <section className={contextClassNames('network-viewer', containerClassName)}>
+  <section className={contextClassNames("network-viewer", containerClassName)}>
     <ThemeProvider options={options}>
       <NetworkProvider
         autoHighlightChange={autoHighlightChange}
@@ -50,7 +50,7 @@ NetworkViewer.propTypes = {
   onDataLoaded: PropTypes.func,
   onRequestSelect: PropTypes.func,
   options: PropTypes.object,
-  scrollRequestPosition: PropTypes.oneOf(['before', 'after', 'near']),
+  scrollRequestPosition: PropTypes.oneOf(["before", "after", "near"]),
   scrollTimeStamp: PropTypes.number,
 };
 
@@ -64,7 +64,7 @@ NetworkViewer.defaultProps = {
   onDataLoaded: null,
   onRequestSelect: () => {},
   options: null,
-  scrollRequestPosition: 'near',
+  scrollRequestPosition: "near",
   scrollTimeStamp: null,
 };
 

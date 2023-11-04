@@ -1,7 +1,6 @@
 import React from "react";
 
 import { useNetwork } from "./../state/network/Context";
-import Styles from "./TimelineContainer.styles.scss?inline";
 import TimelineChart from "./../Components/TimelineChart/TimelineChart";
 
 const TimelineContainer = () => {
@@ -14,7 +13,7 @@ const TimelineContainer = () => {
     return null;
   }
   return (
-    <section className={Styles["timeline-container"]}>
+    <section>
       <TimelineChart chartData={data.toArray()} totalNetworkTime={totalNetworkTime} />
     </section>
   );

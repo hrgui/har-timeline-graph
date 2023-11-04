@@ -7,7 +7,6 @@ import NetworkTableContainer from "./NetworkTableContainer";
 import LoaderContainer from "./../Components/LoaderContainer";
 import { FETCH_FILE_LOAD_TEXT } from "../constants";
 import ReqDetailContainer from "./ReqDetailContainer";
-import Styles from "./MainContainer.styles.scss";
 import TimelineContainer from "./TimelineContainer";
 import { useTheme } from "../state/theme/Context";
 import NetworkTableFooter from "./../Components/NetworkTable/NetworkTableFooter";
@@ -25,7 +24,7 @@ const MainContainer = ({ onRequestSelect }) => {
       <LoaderContainer show={loading} text={FETCH_FILE_LOAD_TEXT}>
         {showTimeline && <TimelineContainer />}
         <FilterContainer />
-        <section className={Styles["main-container"]}>
+        <section>
           <NetworkTableContainer onRequestSelect={onRequestSelect} />
           {showReqDetail && <ReqDetailContainer />}
         </section>

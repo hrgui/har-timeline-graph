@@ -1,17 +1,13 @@
 import React from "react";
-import classNames from "classnames/bind";
 import PropTypes from "prop-types";
 
 import NetworkTableHeader from "./../Components/NetworkTable/NetworkTableHeader";
 import NetworkTableRow from "./../Components/NetworkTable/NetworkTableRow";
 import { useNetwork } from "./../state/network/Context";
 import ImportHar from "./../Components/Import/ImportHAR";
-import Styles from "./NetworkTableContainer.styles.scss";
 import ErrorMessage from "./../Components/ErrorMessage";
 import { useTheme } from "../state/theme/Context";
 import InputHAR from "../Components/Import/InputHAR";
-
-const context = classNames.bind(Styles);
 
 const NetworkTableContainer = ({ onRequestSelect }) => {
   const { state, actions } = useNetwork();
@@ -22,9 +18,7 @@ const NetworkTableContainer = ({ onRequestSelect }) => {
   const error = state.get("error");
   const selectedReqIndex = state.get("selectedReqIndex");
   const showReqDetail = state.get("showReqDetail");
-  const containerClassName = context("table-container", {
-    "limited-cols": showReqDetail,
-  });
+  const containerClassName = "";
   const handleReqSelect = (payload) => {
     actions.updateScrollToIndex(payload.index);
     actions.selectRequest(payload);
@@ -37,7 +31,7 @@ const NetworkTableContainer = ({ onRequestSelect }) => {
 
   if (!actualData.size) {
     return (
-      <section className={Styles["table-container"]}>
+      <section>
         {showImportHAR && (
           <>
             <ImportHar showButton={false} />
@@ -50,9 +44,9 @@ const NetworkTableContainer = ({ onRequestSelect }) => {
 
   return (
     <section className={containerClassName}>
-      <table className={Styles.table}>
+      <table>
         <NetworkTableHeader />
-        <tbody className={Styles["table-content"]}>
+        <tbody>
           {Array.from(data).map((rowInfo) => (
             <NetworkTableRow
               key={rowInfo.index}

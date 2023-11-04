@@ -1,21 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip } from 'recharts';
+import React from "react";
+import PropTypes from "prop-types";
+import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 
-import Styles from './TimelineChart.styles.scss';
-import TimelineDatapoint from './TimelineDatapoint';
-import { formatTime } from '../../utils';
-import TimelineTooltip from './TimelineTooltip';
+import TimelineDatapoint from "./TimelineDatapoint";
+import { formatTime } from "../../utils";
+import TimelineTooltip from "./TimelineTooltip";
 
 const TimelineChart = ({ chartData, totalNetworkTime }) => (
-  <div className={Styles['chart-container']}>
-    <ResponsiveContainer
-      height={100}
-      width="100%"
-    >
-      <ScatterChart
-        className={Styles['scatter-chart']}
-      >
+  <div className={Styles["chart-container"]}>
+    <ResponsiveContainer height={100} width="100%">
+      <ScatterChart className={Styles["scatter-chart"]}>
         <XAxis
           axisLine={false}
           dataKey="timings.startTime"
@@ -27,21 +21,9 @@ const TimelineChart = ({ chartData, totalNetworkTime }) => (
           tickLine={false}
           type="number"
         />
-        <YAxis
-          dataKey="index"
-          domain={['min', 'max']}
-          hide
-          reversed
-        />
+        <YAxis dataKey="index" domain={["min", "max"]} hide reversed />
         <Tooltip content={<TimelineTooltip />} />
-        <Scatter
-          data={chartData}
-          shape={(
-            <TimelineDatapoint
-              maxTime={totalNetworkTime}
-            />
-          )}
-        />
+        <Scatter data={chartData} shape={<TimelineDatapoint maxTime={totalNetworkTime} />} />
       </ScatterChart>
     </ResponsiveContainer>
   </div>

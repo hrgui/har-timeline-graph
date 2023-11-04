@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
+import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames/bind";
 
-import Styles from './Dropdown.styles.scss';
-import Button from './Button';
+const Styles = {};
+import Button from "./Button";
 
 const context = classNames.bind(Styles);
 
@@ -31,21 +31,21 @@ const Dropdown = ({ items, selected, onChange, className }) => {
   };
 
   useEffect(() => {
-    window.addEventListener('click', removeFocus);
+    window.addEventListener("click", removeFocus);
 
     return () => {
-      window.removeEventListener('click', removeFocus);
+      window.removeEventListener("click", removeFocus);
     };
   }, []);
 
   return (
     <span
       ref={dropdownItemsRef}
-      className={context('dropdown-container', className, { expanded: isExpand })}
+      className={context("dropdown-container", className, { expanded: isExpand })}
     >
       <Button
         category="default"
-        className={context('dropdown-toggle', { active: isExpand })}
+        className={context("dropdown-toggle", { active: isExpand })}
         material
         onClick={() => updateToggle(!isExpand)}
         raised={isExpand}
@@ -56,12 +56,9 @@ const Dropdown = ({ items, selected, onChange, className }) => {
       {isExpand && (
         <ul className={Styles.list}>
           {items.map((text, index) => (
-            <li
-              key={text}
-              className={context('list-item', { active: text === selectedKey })}
-            >
+            <li key={text} className={context("list-item", { active: text === selectedKey })}>
               <span
-                className={Styles['item-text']}
+                className={Styles["item-text"]}
                 onClick={() => handleItemSelection(text)}
                 role="button"
                 tabIndex={index}

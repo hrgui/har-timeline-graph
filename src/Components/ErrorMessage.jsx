@@ -1,11 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import Styles from './ErrorMessage.styles.scss';
+import React from "react";
+import PropTypes from "prop-types";
 
 const ErrorMessage = ({ title, description }) => (
-  <div className={Styles['error-container']}>
-    {title && <h4 className={Styles.title}>{title}</h4>}
+  <div>
+    {title && <h4>{title}</h4>}
     {description && <p>{description}</p>}
   </div>
 );

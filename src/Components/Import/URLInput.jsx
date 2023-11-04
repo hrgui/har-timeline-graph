@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-import Styles from './URLInput.styles.scss';
-import Button from './../../../src/Components/Common/Button';
-import CORSCheckbox from './CORSCheckbox';
+import Button from "./../../../src/Components/Common/Button";
+import CORSCheckbox from "./CORSCheckbox";
 
+const Styles = {};
 const URLInput = ({ onSubmit }) => {
-  const [url, setURL] = useState('');
+  const [url, setURL] = useState("");
   const [isCORSEnabled, setCORS] = useState(false);
   const handleInputChange = ({ target }) => {
     setURL(target.value);
@@ -20,11 +20,8 @@ const URLInput = ({ onSubmit }) => {
   };
 
   return (
-    <div className={Styles['url-input-container']}>
-      <CORSCheckbox
-        isEnabled={isCORSEnabled}
-        onChange={setCORS}
-      />
+    <div className={Styles["url-input-container"]}>
+      <CORSCheckbox isEnabled={isCORSEnabled} onChange={setCORS} />
       <input
         className={Styles.input}
         onChange={handleInputChange}
@@ -34,7 +31,7 @@ const URLInput = ({ onSubmit }) => {
       />
       <Button
         category="default"
-        className={Styles['postpend-button']}
+        className={Styles["postpend-button"]}
         material
         onClick={handleSubmit}
         raised

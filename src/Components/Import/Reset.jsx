@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import Button from './../Common/Button';
+import Button from "./../Common/Button";
 
 const Reset = ({ className, onReset }) => {
   const handleURLReset = () => {
-    window.history.pushState({}, document.title, '/');
+    window.history.pushState({}, document.title, "/");
   };
 
   const handleReset = () => {
@@ -33,7 +33,7 @@ Reset.propTypes = {
 };
 
 Reset.defaultProps = {
-  className: '',
+  className: "",
 };
 
 export default Reset;

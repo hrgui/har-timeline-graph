@@ -1,8 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import Styles from './TimelineTooltip.styles.scss';
-import { formatTime } from '../../utils';
+import React from "react";
+import PropTypes from "prop-types";
+import { formatTime } from "../../utils";
 
 const TimelineTooltip = ({ payload }) => {
   if (!payload || !payload.length) {
@@ -11,12 +9,8 @@ const TimelineTooltip = ({ payload }) => {
 
   return (
     <div className={Styles.tooltip}>
-      <div className={Styles.content}>
-        {payload[0].payload.filename}
-      </div>
-      <div>
-        {`Started at: ${formatTime(payload[0].payload.timings.startTime)}`}
-      </div>
+      <div className={Styles.content}>{payload[0].payload.filename}</div>
+      <div>{`Started at: ${formatTime(payload[0].payload.timings.startTime)}`}</div>
     </div>
   );
 };

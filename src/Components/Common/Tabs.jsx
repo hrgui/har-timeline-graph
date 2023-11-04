@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames/bind";
 
-import Styles from './Tabs.styles.scss';
+const Styles = {};
 
 const context = classNames.bind(Styles);
 
@@ -22,11 +22,7 @@ const Tabs = ({
     const itemsCollection = [];
     React.Children.forEach(children, (element) => {
       if (React.isValidElement(element)) {
-        const {
-          name,
-          eventKey: key,
-          children: component,
-        } = element.props;
+        const { name, eventKey: key, children: component } = element.props;
         itemsCollection.push({
           name,
           key,
@@ -38,7 +34,7 @@ const Tabs = ({
   }, [children]);
 
   const [activeTab, updateTab] = useState(
-    defaultSelectedKey || (items && items.length ? items[0].key : null),
+    defaultSelectedKey || (items && items.length ? items[0].key : null)
   );
   const handleUpdate = (key) => {
     updateTab(key);
@@ -54,11 +50,11 @@ const Tabs = ({
 
   return (
     <>
-      <nav className={context('nav-tabs', navTabsClassName)}>
+      <nav className={context("nav-tabs", navTabsClassName)}>
         {items.map(({ key: item, name }, index) => (
           <a
             key={item}
-            className={context('tab-item', navLinkClassName, {
+            className={context("tab-item", navLinkClassName, {
               [activeClassName || Styles.active]: activeTab === item,
             })}
             onClick={() => handleUpdate(item)}
@@ -69,9 +65,7 @@ const Tabs = ({
           </a>
         ))}
       </nav>
-      <section className={context(tabsContainerClassName)}>
-        {renderItem()}
-      </section>
+      <section className={context(tabsContainerClassName)}>{renderItem()}</section>
     </>
   );
 };

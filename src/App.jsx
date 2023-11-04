@@ -1,19 +1,14 @@
 import React, { useState } from "react";
-import classNames from "classnames/bind";
 
 import NetworkViewer from "./NetworkViewer";
-import Styles from "./App.module.scss";
 import Footer from "./Components/Footer";
 import { parseQueryString } from "./utils";
-
-const contextClassNames = classNames.bind(Styles);
+import "./index.css";
 
 const App = () => {
   const [isDataLoaded, setIsDataLoaded] = useState(false);
   const [fileOptions, setFileOptions] = useState(null);
-  const networkContainerClassName = contextClassNames("network-container", {
-    "network-container-data-loaded": isDataLoaded,
-  });
+  const networkContainerClassName = "";
 
   // read file queryString and load HAR file
   useState(() => {
@@ -24,12 +19,12 @@ const App = () => {
   }, []);
 
   return (
-    <section className={Styles["app-container"]}>
+    <section>
       <div className={networkContainerClassName}>
         <NetworkViewer onDataLoaded={() => setIsDataLoaded(true)} {...fileOptions} />
       </div>
       {!isDataLoaded && (
-        <div className={Styles["app-info"]}>
+        <div>
           <Footer />
         </div>
       )}

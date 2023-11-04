@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import Checkbox from './../../../src/Components/Common/Checkbox';
-import Styles from './CORSCheckbox.styles.scss';
+import Checkbox from "./../../../src/Components/Common/Checkbox";
+const Styles = {};
 
 const CORSCheckbox = ({ isEnabled, onChange }) => {
   const handleChange = () => {
@@ -11,7 +11,7 @@ const CORSCheckbox = ({ isEnabled, onChange }) => {
 
   return (
     <Checkbox
-      containerClassName={Styles['cors-container']}
+      containerClassName={Styles["cors-container"]}
       isChecked={isEnabled}
       onChange={handleChange}
       title="CORS Enable"

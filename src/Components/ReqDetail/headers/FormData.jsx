@@ -1,19 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import Styles from './../Headers.styles.scss';
+const Styles = {};
 
 const FormData = ({ data, isPayloadTransformed }) => (
-  <div className={Styles['header-detail']}>
+  <div className={Styles["header-detail"]}>
     {data.headers.postData.params.map(({ name, value }, index) => (
-      <p
-        key={`${name}-${index}`}
-        className={Styles['info-row']}
-      >
-        <span className={Styles['info-caption']}>
-          {`${name}:`}
-        </span>
-        <span className={Styles['info-value']}>
+      <p key={`${name}-${index}`} className={Styles["info-row"]}>
+        <span className={Styles["info-caption"]}>{`${name}:`}</span>
+        <span className={Styles["info-value"]}>
           {isPayloadTransformed ? decodeURIComponent(value) : value}
         </span>
       </p>

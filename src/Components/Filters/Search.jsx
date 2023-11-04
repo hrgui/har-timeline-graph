@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import Styles from './Search.styles.scss';
-import Dropdown from './../Common/Dropdown';
+const Styles = {};
+import Dropdown from "./../Common/Dropdown";
 
-const SEARCH_CATEGORY = ['url', 'body'];
+const SEARCH_CATEGORY = ["url", "body"];
 
 const Search = ({ name, value, onChange }) => {
   const handleInputChange = ({ target }) => {
@@ -22,9 +22,9 @@ const Search = ({ name, value, onChange }) => {
   };
 
   return (
-    <div className={Styles['search-container']}>
+    <div className={Styles["search-container"]}>
       <Dropdown
-        className={Styles['prepend-dropdown']}
+        className={Styles["prepend-dropdown"]}
         items={SEARCH_CATEGORY}
         onChange={handleDropdownChange}
         selected="url"
@@ -47,7 +47,7 @@ Search.propTypes = {
 };
 
 Search.defaultProps = {
-  value: '',
+  value: "",
 };
 
 export default Search;

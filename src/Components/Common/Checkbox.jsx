@@ -1,29 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames/bind';
+import React from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames/bind";
 
-import Styles from './Checkbox.styles.scss';
+const Styles = {};
 
 const context = classNames.bind(Styles);
 
-const Checkbox = ({
-  containerClassName,
-  isChecked,
-  onChange,
-  children,
-  title,
-}) => (
-  <div className={context('checkbox-container', containerClassName)}>
-    <label
-      className={Styles['checkbox-label']}
-      title={title}
-    >
-      <input
-        checked={isChecked}
-        className={Styles.checkbox}
-        onChange={onChange}
-        type="checkbox"
-      />
+const Checkbox = ({ containerClassName, isChecked, onChange, children, title }) => (
+  <div className={context("checkbox-container", containerClassName)}>
+    <label className={Styles["checkbox-label"]} title={title}>
+      <input checked={isChecked} className={Styles.checkbox} onChange={onChange} type="checkbox" />
       {children}
     </label>
   </div>
@@ -38,9 +24,9 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
-  containerClassName: '',
+  containerClassName: "",
   isChecked: false,
-  title: '',
+  title: "",
 };
 
 export default Checkbox;
