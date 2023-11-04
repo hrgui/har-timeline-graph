@@ -23,7 +23,7 @@ const FilterContainer = () => {
         </div>
         <div className="sm:col-span-12 md:col-span-8 lg:col-span-7">
           <div className="flex items-center gap-2">
-            <div class="inline-flex rounded-md shadow-sm" role="group">
+            <div className="inline-flex rounded-md shadow-sm" role="group">
               {FILTERS.map(({ name, filterBy }, index) => {
                 const selectedFilter = filterBy.value === filter.value;
 
