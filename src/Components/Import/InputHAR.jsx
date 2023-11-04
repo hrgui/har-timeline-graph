@@ -15,19 +15,19 @@ const InputHAR = () => {
   };
 
   return (
-    <div className={Styles["input-har-container"]}>
-      <h4 className={Styles["input-har-text"]}>OR add HAR file URL in the below input box</h4>
+    <div className="flex flex-col items-center m-4">
+      <h4 className="">OR add HAR file URL in the below input box</h4>
       <URLInput onSubmit={handleURLSubmit} />
       <p>
-        <span>For Example use this har file</span>
-        <a
-          className={Styles["example-url"]}
-          href={SAMPLE_HAR_URL}
-          rel="noopener noreferrer"
-          target="_blank"
+        <span>For Example use this har file: </span>
+        <button
+          className={"text-blue-300"}
+          onClick={() => {
+            handleURLSubmit({ file: SAMPLE_HAR_URL });
+          }}
         >
-          {SAMPLE_HAR_URL}
-        </a>
+          Load {SAMPLE_HAR_URL}
+        </button>
       </p>
     </div>
   );

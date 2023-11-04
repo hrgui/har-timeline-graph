@@ -52,7 +52,13 @@ const ImportHar = ({ showButton, className }) => {
           Import HAR
         </button>
       ) : (
-        <p className={Styles["drag-drop"]}>Drag and drop HAR file here, or click to select file</p>
+        <p
+          className={
+            "items-center rounded text-[#7f8892] cursor-pointer flex text-lg h-full justify-center min-h-[300px] m-4 border-2 border-dashed border-[#ccc]"
+          }
+        >
+          Drag and drop HAR file here, or click to select file
+        </p>
       )}
     </div>
   );
