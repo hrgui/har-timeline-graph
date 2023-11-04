@@ -1,0 +1,13 @@
+@import "./styles/variables";
+
+.app-container {
+  height: 100%;
+
+  .network-container {
+    height: auto;
+
+    &.network-container-data-loaded {
+      height: 100%;
+    }
+  }
+}
