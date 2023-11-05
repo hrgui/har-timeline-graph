@@ -1,13 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames/bind";
 
 import NetworkProvider from "./state/network/NetworkProvider";
 import MainContainer from "./Containers/MainContainer";
 import ThemeProvider from "./state/theme/Context";
-const Styles = {};
-
-const contextClassNames = classNames.bind(Styles);
 
 const NetworkViewer = ({
   file,

@@ -4,9 +4,6 @@ import PropTypes from "prop-types";
 
 import { formatSize, formatTime } from "./../../utils";
 
-const Styles = {};
-const context = classNames.bind(Styles);
-
 const NetworkTableFooter = ({ dataSummary, showAllInfo }) => (
   <div className="bg-white rounded-lg shadow p-4 dark:bg-gray-800 fixed bottom-0 w-full flex gap-4">
     {showAllInfo ? (

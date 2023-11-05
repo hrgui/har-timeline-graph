@@ -1,8 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Styles = {};
-
 const Search = ({ name, value, onChange }) => {
   const handleInputChange = ({ target }) => {
     onChange({

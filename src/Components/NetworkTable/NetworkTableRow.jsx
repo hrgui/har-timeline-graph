@@ -1,13 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames/bind";
+import classNames from "classnames";
 
 import { ROW_ID_PREFIX } from "./../../constants";
 import TimeChart from "./TimeChart";
 import { getStatusClass } from "../../utils";
-
-const Styles = {};
-const context = classNames.bind(Styles);
 
 const NetworkTableRow = ({ payload, maxTime, scrollHighlight, onSelect }) => {
   const handleSelectRequest = () => {
@@ -15,7 +12,7 @@ const NetworkTableRow = ({ payload, maxTime, scrollHighlight, onSelect }) => {
   };
 
   const rowProps = {
-    className: context("network-table-row", getStatusClass(payload), {
+    className: classNames(getStatusClass(payload), {
       highlight: scrollHighlight,
     }),
     id: ROW_ID_PREFIX + payload.index,
@@ -28,7 +25,7 @@ const NetworkTableRow = ({ payload, maxTime, scrollHighlight, onSelect }) => {
 
   return (
     <tr {...rowProps}>
-      <td className={Styles["timeline-header"]}>
+      <td>
         <TimeChart payload={payload} maxTime={maxTime} timings={payload.timings} />
       </td>
     </tr>

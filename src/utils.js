@@ -327,10 +327,10 @@ export const prepareTooltipData = (data) => ({
 
 export const getStatusClass = ({ status, error }) => {
   if (status === 0 && !error) {
-    return "pending";
+    return "text-gray-500";
   }
   if (status >= 400 || error) {
-    return "error";
+    return "text-red-500";
   }
   return "info";
 };

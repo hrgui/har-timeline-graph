@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import context from "classnames";
 
-const Styles = {};
-
 const Tabs = ({
   onUpdate,
   selectedKey,
@@ -61,7 +59,7 @@ const Tabs = ({
               "inline-block p-4 text-blue-600 bg-gray-100 rounded-t-lg active dark:bg-gray-800 dark:text-blue-50",
               navLinkClassName,
               {
-                [activeClassName || Styles.active]: activeTab === item,
+                [activeClassName || "bg-pink-600"]: activeTab === item,
               }
             )}
             onClick={() => handleUpdate(item)}

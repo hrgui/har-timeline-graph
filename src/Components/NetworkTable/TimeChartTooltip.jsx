@@ -1,12 +1,8 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames/bind";
 
 import { TIMINGS } from "../../constants";
 import { prepareTooltipData } from "../../utils";
-
-const Styles = {};
-const context = classNames.bind(Styles);
 
 const DETAIL = [
   {
@@ -31,25 +27,25 @@ const TimeChartTooltip = ({ data }) => {
   }
 
   return (
-    <div className={Styles.tooltip}>
-      <section className={Styles["tooltip-info"]}>
-        <p className={Styles["time-info"]}>{`Queued at ${tooltipData.queuedAt}`}</p>
-        <p className={Styles["time-info"]}>{`Started at ${tooltipData.startedAt}`}</p>
+    <div className={"block w-[300px] h-auto bg-gray-600 border-2 p-4 opacity:1"}>
+      <section className={"mb-2"}>
+        <p className={"m-0"}>{`Queued at ${tooltipData.queuedAt}`}</p>
+        <p className={"m-0"}>{`Started at ${tooltipData.startedAt}`}</p>
       </section>
       {DETAIL.map(({ title, category }) => (
-        <section key={title} className={Styles["tooltip-info"]}>
-          <table className={Styles["waterfall-tooltip-table"]}>
-            <thead className={Styles["waterfall-tooltip-thead"]}>
-              <tr className={Styles["waterfall-tooltip-tr"]}>
-                <th className={Styles["waterfall-tooltip-th"]}>{title}</th>
-                <th className={Styles["waterfall-tooltip-th"]}>DURATION</th>
+        <section key={title} className={"mb-2"}>
+          <table className={"b-0 w-full"}>
+            <thead>
+              <tr>
+                <th>{title}</th>
+                <th>DURATION</th>
               </tr>
             </thead>
-            <tbody className={Styles["waterfall-tooltip-tbody"]}>
+            <tbody>
               {category.map((key) => (
-                <tr key={key} className={Styles["waterfall-tooltip-tr"]}>
-                  <td className={context("waterfall-tooltip-key", key)}>{TIMINGS[key].name}</td>
-                  <td className={Styles["waterfall-tooltip-value"]}>
+                <tr key={key}>
+                  <td>{TIMINGS[key].name}</td>
+                  <td>
                     {Array.isArray(TIMINGS[key].dataKey)
                       ? tooltipData[TIMINGS[key].dataKey.find((key) => tooltipData[key])]
                       : tooltipData[TIMINGS[key].dataKey]}
@@ -60,8 +56,8 @@ const TimeChartTooltip = ({ data }) => {
           </table>
         </section>
       ))}
-      <section className={Styles["tooltip-info"]}>
-        <p className={Styles["time-info"]}>{`Total time ${tooltipData.totalTime}`}</p>
+      <section>
+        <p>{`Total time ${tooltipData.totalTime}`}</p>
       </section>
     </div>
   );

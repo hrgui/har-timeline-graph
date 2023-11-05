@@ -1,9 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useDropzone } from "react-dropzone";
-
 import { useNetwork } from "./../../state/network/Context";
-const Styles = {};
 
 const DROP_FILE_CONFIG = {
   accept: ".har",

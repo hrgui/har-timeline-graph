@@ -1,7 +1,6 @@
 import React from "react";
 import { stringify } from "qs";
 
-const Styles = {};
 import URLInput from "./URLInput";
 
 const SAMPLE_HAR_URL =
