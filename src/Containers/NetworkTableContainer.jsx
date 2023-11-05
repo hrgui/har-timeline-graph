@@ -43,8 +43,8 @@ const NetworkTableContainer = ({ onRequestSelect }) => {
   }
 
   return (
-    <section className={containerClassName}>
-      <table>
+    <section className="p-4">
+      <table className="w-full">
         <NetworkTableHeader />
         <tbody>
           {Array.from(data).map((rowInfo) => (

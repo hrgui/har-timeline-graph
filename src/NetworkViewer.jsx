@@ -22,7 +22,7 @@ const NetworkViewer = ({
   onDataError,
   containerClassName,
 }) => (
-  <section className={contextClassNames("network-viewer", containerClassName)}>
+  <section className={"pb-20"}>
     <ThemeProvider options={options}>
       <NetworkProvider
         autoHighlightChange={autoHighlightChange}

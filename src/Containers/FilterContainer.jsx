@@ -17,11 +17,11 @@ const FilterContainer = () => {
 
   return (
     <section>
-      <div className="grid grid-cols-12">
-        <div className="sm:col-span-12 md:col-span-5 lg:col-span-4">
+      <div className="grid grid-cols-12 p-4 dark:bg-gray-800">
+        <div className="sm:col-span-12 md:col-span-3 lg:col-span-4">
           <Search {...state.get("search")} onChange={actions.updateSearch} />
         </div>
-        <div className="sm:col-span-12 md:col-span-8 lg:col-span-7">
+        <div className="sm:col-span-12 md:col-span-9 lg:col-span-8 ml-auto">
           <div className="flex items-center gap-2">
             <div className="inline-flex rounded-md shadow-sm" role="group">
               {FILTERS.map(({ name, filterBy }, index) => {
